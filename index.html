@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first calculator</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <form>
+                <div class="result">
+                    <input type="text" name="display">
+                </div>
+
+                <div>
+                    <input class="operator" type="button" value="AC" onclick="clearDisplay()">
+                    <input class="operator" type="button" value="DE" onclick="deleteLast()">
+                    <input class="operator" type="button" value="." onclick="displayValue('.')">
+                    <input class="operator" type="button" value="/" onclick="displayValue('/')">
+                </div>
+
+                <div>
+                    <input type="button" value="7" onclick="displayValue('7')">
+                    <input type="button" value="8" onclick="displayValue('8')">
+                    <input type="button" value="9" onclick="displayValue('9')">
+                    <input class="operator" type="button" value="*" onclick="displayValue('*')">
+                </div>
+
+                <div>
+                    <input type="button" value="4" onclick="displayValue('4')">
+                    <input type="button" value="5" onclick="displayValue('5')">
+                    <input type="button" value="6" onclick="displayValue('6')">
+                    <input class="operator" type="button" value="-" onclick="displayValue('-')">
+                </div>
+
+                <div>
+                    <input type="button" value="1" onclick="displayValue('1')">
+                    <input type="button" value="2" onclick="displayValue('2')">
+                    <input type="button" value="3" onclick="displayValue('3')">
+                    <input class="operator" type="button" value="+" onclick="displayValue('+')">
+                </div>
+
+                <div>
+                    <input type="button" value="00" onclick="displayValue('00')">
+                    <input type="button" value="0" onclick="displayValue('0')">
+                    <input class="equal operator" type="button" onclick="calculate()" value="=">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const display = document.querySelector('input[name="display"]');
+
+        function displayValue(value) {
+            display.value += value;
+        }
+
+        function calculate() {
+            display.value = eval(display.value);
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function deleteLast() {
+            display.value = display.value.toString().slice(0, -1);
+        }
+    </script>
+</body>
+</html>
